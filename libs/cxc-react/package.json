@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "deploy":"npx -p @storybook/storybook-deployer storybook-to-ghpages -o storybook-static"
+    }
+}

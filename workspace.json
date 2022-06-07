@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "cxc-icons": "libs/cxc-icons",
+    "cxc-react": "libs/cxc-react",
     "sponge-bob": "apps/sponge-bob",
     "sponge-bob-e2e": "apps/sponge-bob-e2e"
   }

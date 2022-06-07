@@ -16,6 +16,7 @@ node_modules
 *.launch
 .settings/
 *.sublime-workspace
+**/storybook-static
 
 # IDE - VSCode
 .vscode/*
