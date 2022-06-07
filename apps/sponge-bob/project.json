@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/sponge-bob/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/sponge-bob",
+        "index": "apps/sponge-bob/src/index.html",
+        "baseHref": "/",
+        "main": "apps/sponge-bob/src/main.tsx",
+        "polyfills": "apps/sponge-bob/src/polyfills.ts",
+        "tsConfig": "apps/sponge-bob/tsconfig.app.json",
+        "assets": [
+          "apps/sponge-bob/src/favicon.ico",
+          "apps/sponge-bob/src/assets"
+        ],
+        "styles": ["apps/sponge-bob/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/sponge-bob/src/environments/environment.ts",
+              "with": "apps/sponge-bob/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "sponge-bob:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "sponge-bob:build:development"
+        },
+        "production": {
+          "buildTarget": "sponge-bob:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sponge-bob/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/sponge-bob"],
+      "options": {
+        "jestConfig": "apps/sponge-bob/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

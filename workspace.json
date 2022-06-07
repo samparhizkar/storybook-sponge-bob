@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "sponge-bob": "apps/sponge-bob",
+    "sponge-bob-e2e": "apps/sponge-bob-e2e"
+  }
+}
